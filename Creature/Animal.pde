@@ -14,6 +14,22 @@ class Animal{
   
   void update(){
     PVector mousePos = new PVector(mouseX, mouseY);
+    
+    if(mouseX +- 1 > position.x){
+     animalCurrent = animal02;
+     position = position.lerp(mousePos, 0.05);
+    }
+    
+    else if(mouseX +- 1 < position.x){
+     animalCurrent = animal03;
+     position = position.lerp(mousePos, 0.05);
+    }
+    
+    else if(mouseX +- 1 == position.x){
+     animalCurrent = animal01;
+     position = position.lerp(mousePos, 0.05);
+    }
+
   }
  
   void draw(){
@@ -22,4 +38,9 @@ class Animal{
     imageMode(CENTER);
     image(animalCurrent, position.x, position.y);
   }
+  void run(){
+   update();
+   draw();
+  }
 }
+  
